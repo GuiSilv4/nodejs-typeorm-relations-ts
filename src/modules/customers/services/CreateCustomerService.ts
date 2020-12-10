@@ -21,6 +21,7 @@ class CreateCustomerService {
     if (!name || !email) {
       throw new AppError('Data missing. Should inform email and name.');
     }
+
     const alreadyExists = await this.customersRepository.findByEmail(email);
 
     if (alreadyExists) {
